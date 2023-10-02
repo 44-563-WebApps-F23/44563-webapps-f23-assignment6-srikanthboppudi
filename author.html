@@ -61,6 +61,25 @@ function resolveForm (){
     }
 </script>
 </body>
+<div class="container">
+    <img id="img1" src="bang.jpg" height="100" width="100" onclick="selectImage()">
+</div>
+<script>
+var useImage = 1;
+function selectImage(){
+    switch(useImage){
+        case 1: document.getElementById('img1').src="delhi.jpg";
+        useImage=2;
+        break;
+        case 2: document.getElementById('img1').src="ooty.jpg";
+        useImage=3;
+        break;
+        case 3: document.getElementById('img1').src="bang.jpg";
+        useImage=1;
+        break;
+    }
+}
+</script>
 </html>
 
 
