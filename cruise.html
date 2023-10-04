@@ -9,9 +9,24 @@
     <label for="breakfast">Breakfast</label>
     <input type="checkbox" id="pool" value="False">
     <label for="pool">Pool Pass</label>
+    <input type="button" value="Select a cruise" onclick="selectCruise()">
  </form>
+ <form class="group1">
+        <label for="days">Enter the number of days:</label>
+        <input type="text" id="days" value="7">
+        <label for="price">Enter price:</label>
+        <input type="text" id="price" value="1000">
+       <input type="button" value="Update the cruise" onclick="updateCruise()">
+</form>
+<script>
+    function updateCruise(){
+        const days = document.getElementById("days").value;
+        const price = document.getElementById("price").value;
+        my_cruise["days"] = days;
+        my_cruise["price"] = price;
+        document.getElementById("result1").innerHTML = JSON.stringify(my_cruise);
+    }
 </script>
-<input type="button" value="Select a cruise" onclick="selectCruise()">
  <div id="result1"></div>
  <script>
     let my_cruise = {};
