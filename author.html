@@ -57,6 +57,9 @@ function resolveForm (){
         } else {
             oops++;
             alert("Sorry");
+            if (oops>7){
+                alert("Sorry, ran out of guesses.");
+            }
         }
         const resultElement = document.getElementById('result');
         resultElement.innerHTML = `Good: ${good}, Oops: ${oops}`;
