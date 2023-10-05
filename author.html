@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head>
  <title>Author Books</title>
-</head>
 <body>
 <h1>Author entry Srikanth Boppudi</h1>
 <h2>Getting input</h2>
@@ -45,9 +43,12 @@ function resolveForm (){
     <input type="button" value="Check the guess" onclick="checkAuthor()">
 </form>
 <div id="result"></div>
+<div id="incorrectguess"></div>
 <script>
     let good = 0;
     let oops = 0;
+    let incorrectGuesses = 0;
+    const maxIncorrectGuesses = 7;
     function checkAuthor() {
         const hiddenAuthorValue = document.getElementById('hiddenAuthor').value;
         const guessAuthorValue = document.getElementById('guessAuthor').value;
@@ -56,9 +57,15 @@ function resolveForm (){
             alert("You got it right!");
         } else {
             oops++;
+            incorrectGuesses++;
+            if (incorrectGuesses > maxIncorrectGuesses) {
+                    alert('Sorry, ran out of guesses.');
+                    checkButton.onclick = function () {
+                        alert('Sorry, ran out of guesses.');
+                    }
+                }
+            else{
             alert("Sorry");
-            if (oops>7){
-                alert("Sorry, ran out of guesses.");
             }
         }
         const resultElement = document.getElementById('result');
